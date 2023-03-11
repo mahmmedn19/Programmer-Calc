@@ -1,10 +1,13 @@
-package com.example.programmercalc
+/**
+ * Author: "Mohamed Naser"
+ * Date: 11/3/2023
+ */
 
+package com.example.programmercalc
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.View.OnTouchListener
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -28,8 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var decRes: TextView
     private lateinit var hexRes: TextView
     private lateinit var resultTextView: TextView
-    private lateinit var equalBtn: Button
-    private lateinit var clearBtn: Button
+    private lateinit var  clearBtn: Button
     private lateinit var rmBtn: Button
     private lateinit var eBtn: Button
     private lateinit var fBtn: Button
@@ -52,11 +54,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        equalBtn = findViewById(R.id.equal_btn)
-        //setupEqualBtn()
-        setupConversionTypeListener()
 
         setupViews()
+
+        setupConversionTypeListener()
 
         setupNumberButtons()
 
@@ -100,39 +101,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNumberButtons() {
         val numberButtons = listOf(
-            zeroBtn,
-            oneBtn,
-            twoBtn,
-            threeBtn,
-            fourBtn,
-            fiveBtn,
-            sixBtn,
-            sevenBtn,
-            eightBtn,
-            nineBtn,
-            aBtn,
-            bBtn,
-            cBtn,
-            dBtn,
-            eBtn,
-            fBtn
+            zeroBtn, oneBtn, twoBtn, threeBtn, fourBtn, fiveBtn, sixBtn, sevenBtn, eightBtn, nineBtn, aBtn, bBtn, cBtn, dBtn, eBtn, fBtn
         )
 
         numberButtons.forEach { button ->
             button.setOnClickListener { appendText(button.text.toString()) }
         }
     }
-
     private fun setupClearButton() {
         clearBtn.setOnClickListener {
             binRes.text = ""
             octRes.text = ""
             decRes.text = ""
             hexRes.text = ""
-            resultTextView.text = ""
+            resultTextView.text= ""
         }
     }
-
     private fun setupRemoveButton() {
         rmBtn.setOnClickListener {
             when {
@@ -140,128 +124,117 @@ class MainActivity : AppCompatActivity() {
                 octRes.text.isNotEmpty() -> octRes.text = octRes.text.dropLast(1)
                 decRes.text.isNotEmpty() -> decRes.text = decRes.text.dropLast(1)
                 hexRes.text.isNotEmpty() -> hexRes.text = hexRes.text.dropLast(1)*/
-                resultTextView.text.isNotEmpty() -> resultTextView.text =
-                    resultTextView.text.dropLast(1)
+                resultTextView.text.isNotEmpty() -> resultTextView.text = resultTextView.text.dropLast(1)
             }
         }
     }
+
+    // the btn not working yet and i complete this ):
+
     /* private fun setupEqualBtn() {
-         // Set up the "Equal" button click listener
-         equalBtn.setOnClickListener {
-             val input = getInputText()
-             val conversionType = conversionTypes[conversionTypeSpinner.selectedItemPosition]
+          // Set up the "Equal" button click listener
+          equalBtn.setOnClickListener {
+              val input = getInputText()
+              val conversionType = conversionTypes[conversionTypeSpinner.selectedItemPosition]
 
-             // Perform the conversion based on the selected conversion type
-             when (conversionType) {
-                 "Binary" -> {
-                     if (binaryRegex.matches(input)) {
-                         binRes.text = input
-                         octRes.text = binToOct(input)
-                         decRes.text = binToDec(input)
-                         hexRes.text = binToHex(input)
-                     } else {
-                         binRes.text = "not valid"
-                     }
-                 }
-                 "Octal" -> {
-                     if (octalRegex.matches(input)) {
-                         binRes.text = octToBin(input)
-                         octRes.text = input
-                         decRes.text = octToDec(input)
-                         hexRes.text = octToHex(input)
-                     } else {
-                         octRes.text = "not valid"
-                     }
-                 }
-                 "Decimal" -> {
-                     if (decimalRegex.matches(input)) {
-                         binRes.text = decToBin(input)
-                         octRes.text = decToOct(input)
-                         decRes.text = input
-                         hexRes.text = decToHex(input)
-                     } else {
-                         decRes.text = "not valid"
-                     }
-                 }
-                 "Hexa" -> {
-                     if (hexRegex.matches(input)) {
-                         binRes.text = hexToBin(input)
-                         octRes.text = hexToOct(input)
-                         decRes.text = hexToDec(input)
-                         hexRes.text = input.uppercase(Locale.getDefault())
-                     } else {
-                         hexRes.text = "not valid"
-                     }
-                 }
-             }
-         }
-     }*/
-
+              // Perform the conversion based on the selected conversion type
+              when (conversionType) {
+                  "Binary" -> {
+                      if (binaryRegex.matches(input)) {
+                          binRes.text = input
+                          octRes.text = binToOct(input)
+                          decRes.text = binToDec(input)
+                          hexRes.text = binToHex(input)
+                      } else {
+                          binRes.text = "not valid"
+                      }
+                  }
+                  "Octal" -> {
+                      if (octalRegex.matches(input)) {
+                          binRes.text = octToBin(input)
+                          octRes.text = input
+                          decRes.text = octToDec(input)
+                          hexRes.text = octToHex(input)
+                      } else {
+                          octRes.text = "not valid"
+                      }
+                  }
+                  "Decimal" -> {
+                      if (decimalRegex.matches(input)) {
+                          binRes.text = decToBin(input)
+                          octRes.text = decToOct(input)
+                          decRes.text = input
+                          hexRes.text = decToHex(input)
+                      } else {
+                          decRes.text = "not valid"
+                      }
+                  }
+                  "Hexa" -> {
+                      if (hexRegex.matches(input)) {
+                          binRes.text = hexToBin(input)
+                          octRes.text = hexToOct(input)
+                          decRes.text = hexToDec(input)
+                          hexRes.text = input.uppercase(Locale.getDefault())
+                      } else {
+                          hexRes.text = "not valid"
+                      }
+                  }
+              }
+          }
+      }*/
     private fun setupConversionTypeListener() {
+        conversionTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val input = getInputText()
+                hideButtonsForConversionType(conversionTypes[position])
+                when (conversionTypes[position]) {
+                    "Binary" -> {
 
-            val initialPosition = conversionTypeSpinner.selectedItemPosition
-            conversionTypeSpinner.setSelection(initialPosition, false)
-            conversionTypeSpinner.onItemSelectedListener =
-                object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(
-                        parent: AdapterView<*>?,
-                        view: View?,
-                        position: Int,
-                        id: Long
-                    ) {
-                        val input = getInputText()
-                        hideButtonsForConversionType(conversionTypes[position])
-
-
-                        when (conversionTypes[position]) {
-                            "Binary" -> {
-                                if (binaryRegex.matches(input)) {
-                                    binRes.text = input
-                                    octRes.text = binToOct(input)
-                                    decRes.text = binToDec(input)
-                                    hexRes.text = binToHex(input)
-                                } else {
-                                    binRes.text = "not valid"
-                                }
-                            }
-                            "Octal" -> {
-                                if (octalRegex.matches(input)) {
-                                    binRes.text = octToBin(input)
-                                    octRes.text = input
-                                    decRes.text = octToDec(input)
-                                    hexRes.text = octToHex(input)
-                                } else {
-                                    octRes.text = "not valid"
-                                }
-                            }
-                            "Decimal" -> {
-                                if (decimalRegex.matches(input)) {
-                                    binRes.text = decToBin(input)
-                                    octRes.text = decToOct(input)
-                                    decRes.text = input
-                                    hexRes.text = decToHex(input)
-                                } else {
-                                    decRes.text = "not valid"
-                                }
-                            }
-                            "Hexa" -> {
-                                if (hexRegex.matches(input)) {
-                                    binRes.text = hexToBin(input)
-                                    octRes.text = hexToOct(input)
-                                    decRes.text = hexToDec(input)
-                                    hexRes.text = input.uppercase(Locale.getDefault())
-                                } else {
-                                    hexRes.text = "not valid"
-                                }
-                            }
+                        if (binaryRegex.matches(input)) {
+                            binRes.text = input
+                            octRes.text = binToOct(input)
+                            decRes.text = binToDec(input)
+                            hexRes.text = binToHex(input)
+                        }else {
+                            binRes.text = "not valid"
                         }
                     }
+                    "Octal" -> {
+                        if (octalRegex.matches(input)) {
+                            binRes.text = octToBin(input)
+                            octRes.text = input
+                            decRes.text = octToDec(input)
+                            hexRes.text = octToHex(input)
+                        }else {
+                            octRes.text = "not valid"
+                        }
+                    }
+                    "Decimal" -> {
+                        if (decimalRegex.matches(input)) {
+                            binRes.text = decToBin(input)
+                            octRes.text = decToOct(input)
+                            decRes.text = input
+                            hexRes.text = decToHex(input)
+                        }else {
+                            decRes.text = "not valid"
+                        }
+                    }
+                    "Hexa" -> {
+                        if (hexRegex.matches(input)) {
+                            binRes.text = hexToBin(input)
+                            octRes.text = hexToOct(input)
+                            decRes.text = hexToDec(input)
+                            hexRes.text = input.uppercase(Locale.getDefault())
+                        } else {
+                            hexRes.text = "not valid"
+                        }
+                    }
+                }
+            }
 
-                    override fun onNothingSelected(parent: AdapterView<*>?) {}
-
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
-
     private fun hideButtonsForConversionType(conversionType: String) {
         when (conversionType) {
             "Binary" -> {
@@ -347,7 +320,6 @@ class MainActivity : AppCompatActivity() {
         val currentInput = resultTextView.text.toString()
         resultTextView.text = currentInput + text
     }
-
     private fun binToOct(input: String): String {
         // Pad the input with zeros to make its length a multiple of 3
         val paddedInput = input.padStart((input.length / 3 + 1) * 3, '0')
@@ -373,17 +345,14 @@ class MainActivity : AppCompatActivity() {
         }
         return decimal.toString()
     }
-
     private fun binToHex(binary: String): String {
         val decimal = Integer.parseInt(binary, 2)
         return Integer.toHexString(decimal).uppercase()
     }
-
     private fun octToBin(octal: String): String {
         val decimal = octToDec(octal)
         return decToBin(decimal)
     }
-
     private fun octToDec(octal: String): String {
         return try {
             Integer.parseInt(octal, 8).toString()
@@ -391,16 +360,13 @@ class MainActivity : AppCompatActivity() {
             ""
         }
     }
-
     private fun octToHex(oct: String): String {
         val decimal = octToDec(oct)
         return decToHex(decimal)
     }
-
     private fun decToBin(decimal: String): String {
         return Integer.toBinaryString(decimal.toInt())
     }
-
     private fun decToOct(decimal: String): String {
         val dec = decimal.toInt()
         var oct = ""
@@ -417,22 +383,18 @@ class MainActivity : AppCompatActivity() {
 
         return oct
     }
-
     private fun decToHex(decimal: String): String {
         val dec = decimal.toLong()
         return java.lang.Long.toHexString(dec).uppercase()
     }
-
     private fun hexToBin(hex: String): String {
         val decimal = hexToDec(hex)
         return decToBin(decimal)
     }
-
     private fun hexToOct(hex: String): String {
         val dec = hexToDec(hex)
         return decToOct(dec)
     }
-
     private fun hexToDec(input: String): String {
         var sum = 0
         val hexDigits = "0123456789ABCDEF"
