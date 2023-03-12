@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import java.math.BigInteger
 import java.util.*
 import kotlin.math.pow
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var octRes: TextView
     private lateinit var decRes: TextView
     private lateinit var hexRes: TextView
+    private lateinit var textBinary: TextView
+    private lateinit var textOctal: TextView
+    private lateinit var textDecimal: TextView
+    private lateinit var textHexa: TextView
     private lateinit var input: TextView
     private lateinit var  clearBtn: Button
     private lateinit var rmBtn: Button
@@ -100,6 +105,10 @@ class MainActivity : AppCompatActivity() {
         eightBtn = findViewById(R.id.eight_btn)
         nineBtn = findViewById(R.id.nine_btn)
         equalBtn = findViewById(R.id.equal_btn)
+        textBinary = findViewById(R.id.text_binary)
+        textOctal = findViewById(R.id.text_octal)
+        textDecimal = findViewById(R.id.text_decimal)
+        textHexa = findViewById(R.id.text_hexa)
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, conversionTypes)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -213,6 +222,14 @@ class MainActivity : AppCompatActivity() {
                 dBtn.isEnabled = false
                 eBtn.isEnabled = false
                 fBtn.isEnabled = false
+                textBinary.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_500))
+                textOctal.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textDecimal.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textHexa.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                binRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_200))
+                octRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                decRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                hexRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
             }
             "Octal" -> {
                 zeroBtn.isEnabled = true
@@ -231,6 +248,14 @@ class MainActivity : AppCompatActivity() {
                 dBtn.isEnabled = false
                 eBtn.isEnabled = false
                 fBtn.isEnabled = false
+                textBinary.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textOctal.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_500))
+                textDecimal.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textHexa.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                binRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                octRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_200))
+                decRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                hexRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
             }
             "Decimal" -> {
                 zeroBtn.isEnabled = true
@@ -249,6 +274,14 @@ class MainActivity : AppCompatActivity() {
                 dBtn.isEnabled = false
                 eBtn.isEnabled = false
                 fBtn.isEnabled = false
+                textBinary.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textOctal.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textDecimal.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_500))
+                textHexa.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                binRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                octRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                decRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_200))
+                hexRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
             }
             "Hexa" -> {
                 zeroBtn.isEnabled = true
@@ -267,6 +300,14 @@ class MainActivity : AppCompatActivity() {
                 dBtn.isEnabled = true
                 eBtn.isEnabled = true
                 fBtn.isEnabled = true
+                textBinary.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textOctal.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textDecimal.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_light))
+                textHexa.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_500))
+                binRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                octRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                decRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.gray_200))
+                hexRes.setTextColor(ContextCompat.getColor(applicationContext,R.color.yellow_200))
             }
 
 

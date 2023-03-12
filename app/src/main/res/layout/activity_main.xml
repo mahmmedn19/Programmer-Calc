@@ -89,7 +89,10 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout style="@style/linearRow">
+    <LinearLayout
+        style="@style/linearRow"
+        android:padding="8dp"
+        >
 
         <Spinner
             android:id="@+id/conversion_type_spinner"
@@ -98,12 +101,12 @@
             android:layout_height="match_parent"
             tools:listitem="@layout/support_simple_spinner_dropdown_item"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/gray_200"
+            android:background="@color/yellow_200"
              />
         <TextView
             android:id="@+id/text_to_append_number"
             style="@style/textStyleHeader.Result"
-            android:textColor="@color/gray_light"
+            android:textColor="@color/gray_200"
             tools:text="121454DAD4346"
             android:background="@null"
             />
@@ -217,6 +220,7 @@
         <Button
             android:id="@+id/one_btn"
             style="@style/buttonNumber"
+            android:background="@drawable/btn_background"
             android:text="@string/_1" />
 
         <Button
